@@ -5,4 +5,5 @@ for run the server:
     3- cd app/FilterAPI
     4- rename config.py.sample to confing.py
     5- cd ..
-    6- python3 main.py
+    6- python3 create_db.py
+    7. python3 main.py
