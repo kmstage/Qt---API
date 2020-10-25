@@ -6,3 +6,7 @@ from FilterAPI.models import Data
 @app.route('/status')
 def first_page():
     return jsonify(status="ok")
+
+@app.route('/allData')
+def all_data():
+    return (Data.getAll())
