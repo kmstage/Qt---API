@@ -45,3 +45,31 @@ class Data(db.Model):
                 'BuyPrice':i.BuyPrice,'SaleCount':i.SaleCount, 'SaleVolume':i.SaleVolume,'SalePrice':i.SalePrice}
             result.append(sample)
         return jsonify(result)
+
+    @staticmethod
+    def shoppingLine():
+        result = []
+        data = Data.query.filter(
+            Data.BuyPrice == Data.TheMost, Data.BuyVolume>0).all()
+        for i in data:
+            sample = {'id':i.id, 'Symbol':i.Symbol, 'Name':i.Name, 'Number':i.Number, 'Volume': i.Volume,'Value':i.Value,'Yesterday':i.Yesterday,
+                'First':i.First,'LastPriceValue':i.LastPriceValue, 'LastPriceChange':i.LastPriceChange, 'LastPricePercent':i.LastPricePercent,
+                'FinalPriceValue':i.FinalPriceValue, 'FinalPriceChange':i.FinalPriceChange, 'FinalPricePercent':i.FinalPricePercent,
+                'TheLeast':i.TheLeast,'TheMost':i.TheMost,'EPS':i.EPS,'PE':i.PE,'BuyCount':i.BuyCount,'BuyVolume':i.BuyVolume,
+                'BuyPrice':i.BuyPrice,'SaleCount':i.SaleCount, 'SaleVolume':i.SaleVolume,'SalePrice':i.SalePrice}
+            result.append(sample)
+        return jsonify(result)
+
+    @staticmethod
+    def salesLine():
+        result = []
+        data = Data.query.filter(
+            Data.SalePrice == Data.TheLeast, Data.SaleVolume>0).all()
+        for i in data:
+            sample = {'id':i.id, 'Symbol':i.Symbol, 'Name':i.Name, 'Number':i.Number, 'Volume': i.Volume,'Value':i.Value,'Yesterday':i.Yesterday,
+                'First':i.First,'LastPriceValue':i.LastPriceValue, 'LastPriceChange':i.LastPriceChange, 'LastPricePercent':i.LastPricePercent,
+                'FinalPriceValue':i.FinalPriceValue, 'FinalPriceChange':i.FinalPriceChange, 'FinalPricePercent':i.FinalPricePercent,
+                'TheLeast':i.TheLeast,'TheMost':i.TheMost,'EPS':i.EPS,'PE':i.PE,'BuyCount':i.BuyCount,'BuyVolume':i.BuyVolume,
+                'BuyPrice':i.BuyPrice,'SaleCount':i.SaleCount, 'SaleVolume':i.SaleVolume,'SalePrice':i.SalePrice}
+            result.append(sample)
+        return jsonify(result)
