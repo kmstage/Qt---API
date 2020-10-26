@@ -1,18 +1,23 @@
 import requests
 import json
 
+baseurl = 'http://app-karen-m.fandogh.cloud'
+
+#baseurl for local network:
+#baseurl = http://127.0.0.1:5000
+
 def shoppingLine():
     data = {'type':'shoppingLine'}
-    response = requests.post('http://0.0.0.0:5000/getData', data=data)
+    response = requests.post(baseurl+'/getData', data=data)
     return json.loads(response.text)
 
 def allData():
-    response = requests.get('http://0.0.0.0:5000/allData')
+    response = requests.get(baseurl+'/allData')
     return json.loads(response.text)
 
 def salesLine():
     data = {'type':'salesLine'}
-    response = requests.post('http://0.0.0.0:5000/getData', data=data)
+    response = requests.post(baseurl+'/getData', data=data)
     return json.loads(response.text)
 
 
